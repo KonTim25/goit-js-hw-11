@@ -1,9 +1,8 @@
 import SimpleLightbox from 'simplelightbox';
-import 'simplelightbox/dist/simple-lightbox.min.css'; // Импорт стилей
+import 'simplelightbox/dist/simple-lightbox.min.css';
 
-let lightbox; // Переменная для экземпляра SimpleLightbox
+let lightbox;
 
-// Функция для создания галереи
 export const createGallery = (images) => {
     const gallery = document.querySelector('.gallery');
     const markup = images.map(image => `
@@ -20,33 +19,29 @@ export const createGallery = (images) => {
         </li>
     `).join('');
 
-    gallery.innerHTML = markup; // Добавляем разметку в галерею
+    gallery.innerHTML = markup;
 
-    // Инициализация SimpleLightbox
     if (!lightbox) {
         lightbox = new SimpleLightbox('.gallery a', {
-            captionsData: 'alt', // Используем атрибут alt для подписи
-            captionDelay: 250, // Задержка для подписи
+            captionsData: 'alt',
+            captionDelay: 250,
         });
     } else {
-        lightbox.refresh(); // Обновляем галерею, если экземпляр уже существует
+        lightbox.refresh();
     }
 };
 
-// Функция для очистки галереи
 export const clearGallery = () => {
     const gallery = document.querySelector('.gallery');
-    gallery.innerHTML = ''; // Очищаем содержимое галереи
+    gallery.innerHTML = ''; 
 };
 
-// Функция для показа индикатора загрузки
 export const showLoader = () => {
     const loader = document.querySelector('.loader');
-    loader.style.display = 'block'; // Показываем индикатор загрузки
+    loader.style.display = 'block';
 };
 
-// Функция для скрытия индикатора загрузки
 export const hideLoader = () => {
     const loader = document.querySelector('.loader');
-    loader.style.display = 'none'; // Скрываем индикатор загрузки
+    loader.style.display = 'none';
 };

@@ -7,27 +7,24 @@ const form = document.querySelector('.form');
 const gallery = document.querySelector('.gallery');
 
 form.addEventListener('submit', (event) => {
-    event.preventDefault(); // Предотвращаем стандартное поведение формы
+    event.preventDefault();
 
-    const searchText = form.elements['search-text'].value.trim(); // Получаем текст поиска
+    const searchText = form.elements['search-text'].value.trim();
 
-    // Проверяем, не пустая ли строка поиска
     if (!searchText) {
         iziToast.error({
             title: 'Error',
             message: 'Please enter a search term',
             position: 'topRight',
         });
-        return; // Прерываем выполнение, если строка пустая
+        return;
     }
 
-    clearGallery(); // Очищаем предыдущие результаты
-    showLoader(); // Показываем индикатор загрузки
+    clearGallery();
+    showLoader();
 
-    // Выполняем запрос к API
     getImagesByQuery(searchText)
         .then(images => {
-            // Проверка, есть ли изображения в ответе
             if (images.length === 0) {
                 iziToast.error({
                     message: 'Sorry, there are no images matching your search query. Please try again!',
@@ -36,19 +33,17 @@ form.addEventListener('submit', (event) => {
                 return;
             }
 
-            // Создаем галерею с новыми изображениями
             createGallery(images); 
         })
         .catch(error => {
-            // Обработка ошибок при запросе
             iziToast.error({
                 message: 'An error occurred while fetching images. Please try again later.',
                 position: 'topRight',
             });
         })
         .finally(() => {
-            hideLoader(); // Скрываем индикатор загрузки после завершения
+            hideLoader();
         });
-    // Очищаем поле ввода после выполнения запроса
-    form.elements['search-text'].value = ''; // Очистка поля ввода
+    
+    form.elements['search-text'].value = '';
 });

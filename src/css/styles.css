@@ -8,10 +8,6 @@
 @import url('./reset.css');
 @import url('./base.css');
 
-body {
-  /* background-color: #444; */
-}
-
 .container {
   width: 1440;
   text-align: center;
@@ -43,10 +39,9 @@ form {
   border-radius: 5px;
   overflow: hidden;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  background-color: white; /* Фон карточки */
-  /* width: calc(33.33% - 10px); */
+  background-color: white;
   width: calc((100% - 5 * 10px) / 5);
-  box-sizing: border-box; /* Учитываем отступы и границы */
+  box-sizing: border-box;
 }
 .gallery img {
   display: block;
@@ -55,28 +50,18 @@ form {
 }
 
 .image-info {
-  padding: 10px; /* Отступы для информации */
-  /* font-size: 14px; Размер шрифта для информации */
-  display: flex; /* Используем flexbox для выравнивания */
-  justify-content: space-between; /* Распределяем элементы по ширине */
-  background-color: #f9f9f9; /* Фон для информации */
-  text-align: center; /* Центрируем текст */
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  background-color: #f9f9f9;
+  text-align: center;
 }
 
 .image-info p {
-  margin: 0; /* Убираем отступы */
-  flex-grow: 1; /* Позволяем элементам занимать равное пространство */
+  margin: 0;
+  flex-grow: 1;
 }
 
-/* .loader {
-  position: relative;
-  height: 200px;
-  width: 200px;
-  border-bottom: 3px solid #ff3d00;
-  box-sizing: border-box;
-  animation: drawLine 4s linear infinite;
-  
-} */
 .loader {
   width: 200px;
   height: 40px;

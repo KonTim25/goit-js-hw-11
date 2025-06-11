@@ -1,8 +1,7 @@
 import axios from 'axios';
 
-const API_KEY = '50757194-f2b273e514caa2f992e1a47fc'; // Замените на ваш ключ API
+const API_KEY = '50757194-f2b273e514caa2f992e1a47fc';
 
-// Функция для получения изображений по запросу
 export const getImagesByQuery = async (query) => {
     try {
         const response = await axios.get('https://pixabay.com/api/', {
@@ -14,9 +13,9 @@ export const getImagesByQuery = async (query) => {
                 safesearch: true,
             },
         });
-        return response.data.hits; // Возвращаем массив изображений
+        return response.data.hits;
     } catch (error) {
         console.error('Error fetching data:', error);
-        throw error; // Пробрасываем ошибку
+        throw error;
     }
 };
